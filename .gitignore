@@ -1,0 +1,19 @@
+# Игнорировать виртуальное окружение
+/.venv/
+__pycache__/
+*.py[cod]
+
+# Файлы IDE
+.vscode/
+.idea/
+*.sublime-workspace
+
+
+/nats/data/
+/nui/
+/pgadmin/
+/postgres_data/
+
+/logs
+
+.env

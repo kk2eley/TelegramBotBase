@@ -1,0 +1,37 @@
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: yaro2k
+      POSTGRES_PASSWORD: yaro2k
+      POSTGRES_DB: data
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    user: "0:0"
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    ports:
+      - "5050:80"  # Изменили порт на 5050
+    environment:
+      PGADMIN_DEFAULT_EMAIL: a@a.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    depends_on:
+      - postgres
+
+  bot:
+    restart: unless-stopped
+    build: ./
+    env_file:
+      - app/config/.env
+    volumes:
+      - ./logs:/bot/app/logs
+    depends_on:
+      - postgres
+      - nats
+
