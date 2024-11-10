@@ -2,3 +2,4 @@ SQLAlchemy~=2.0.36
 environs~=11.0.0
 aiogram~=3.14.0
 aiogram_dialog~=2.2.0
+asyncpg~=0.30.0
