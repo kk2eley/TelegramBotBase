@@ -34,11 +34,11 @@ def get_config():
             admin_ids=env.list("ADMIN_IDS", subcast=int),
         ),
         db=Db(
-            user=env.str("DB_USER"),
+            user=env.str("POSTGRES_USER"),
             host=env.str("DB_HOST"),
-            password=env.str("DB_PASSWORD"),
-            db=env.str("DB_DATABASE"),
-            dsn=f'postgresql+asyncpg://{env.str("DB_USER")}:{env.str("DB_PASSWORD")}@{env.str("DB_HOST")}/{env.str("DB_DATABASE")}',
+            password=env.str("POSTGRES_PASSWORD"),
+            db=env.str("POSTGRES_DB"),
+            dsn=f'postgresql+asyncpg://{env.str("POSTGRES_USER")}:{env.str("POSTGRES_PASSWORD")}@{env.str("DB_HOST")}/{env.str("POSTGRES_DB")}',
             echo=env.bool("DB_ECHO")
         ),
     )
