@@ -29,7 +29,7 @@ async def main():
 
     dp.include_routers(commands.router)
     dp.include_routers(*get_dialogs())
-    dp.include_routers(*get_routers())
+    # dp.include_routers(*get_routers())
 
     bg_factory = setup_dialogs(dp)
 
