@@ -20,7 +20,7 @@ COPY requirements.txt .
 RUN pip install --no-cache -r /app/requirements.txt
 
 # Копируем весь код в рабочую директорию
-COPY app /app/bot
+COPY bot /app/bot
 
 # Запускаем приложение
 CMD ["python", "-m", "bot"]

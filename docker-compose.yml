@@ -30,7 +30,7 @@ services:
     restart: unless-stopped
     build: ./
     env_file:
-      - app/config/.env
+      - bot/config/.env
     volumes:
       - ./logs:/app/bot/logs
     depends_on:
