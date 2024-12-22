@@ -6,7 +6,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Устанавливаем рабочую директорию
-WORKDIR /bot
+WORKDIR /app
 
 # Устанавливаем необходимые системные зависимости
 RUN apt-get update && apt-get install -y \
@@ -17,10 +17,10 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 
 # Устанавливаем зависимости Python
-RUN pip install --no-cache -r /bot/requirements.txt
+RUN pip install --no-cache -r /app/requirements.txt
 
 # Копируем весь код в рабочую директорию
-COPY app /bot/app
+COPY app /app/bot
 
 # Запускаем приложение
-CMD ["python", "-m", "app"]
+CMD ["python", "-m", "bot"]
